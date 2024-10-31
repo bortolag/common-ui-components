@@ -1,0 +1,24 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "0.2",
+	"FriendlyName": "Common UI Components",
+	"Description": "A library of common UI components.",
+	"Category": "UI",
+	"CreatedBy": "Gianluca Bortolanza",
+	"CreatedByURL": "https://github.com/bortolag",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": true,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "CommonUIComponents",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
+}
