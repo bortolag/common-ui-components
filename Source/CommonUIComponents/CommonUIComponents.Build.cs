@@ -34,6 +34,7 @@ public class CommonUIComponents : ModuleRules
 			{
 				"CoreUObject",
 				"Engine",
+				"Projects",
 				"Slate",
 				"SlateCore"
 			}

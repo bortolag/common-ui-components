@@ -2,6 +2,7 @@
 
 #include "UI/Slate/CommonUIComponentsStyles.h"
 
+#include <Interfaces/IPluginManager.h>
 #include <Styling/SlateStyleMacros.h>
 #include <Styling/SlateStyleRegistry.h>
 
@@ -49,8 +50,9 @@ void FNavigationDotsStyle::SetNavigateRightButtonStyle(const FButtonStyle& InBut
 FCommonUIComponentsEditorStyle::FCommonUIComponentsEditorStyle() : FSlateStyleSet("CommonUIComponentsEditorStyle")
 {
 	const FVector2D Icon16x16 = FVector2D(16.0f, 16.0f);
-	
-	SetContentRoot(FPaths::ProjectPluginsDir() / TEXT("CommonUIComponents/Content/Slate"));
+
+	const FString& PluginDirectory = IPluginManager::Get().FindPlugin(TEXT("CommonUIComponents"))->GetBaseDir();
+	SetContentRoot(PluginDirectory / TEXT("/Content/Slate"));
 	
 	const FCheckBoxStyle DotCheckBoxStyle = FCheckBoxStyle()
 		.SetCheckBoxType(ESlateCheckBoxType::CheckBox)
