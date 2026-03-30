@@ -24,16 +24,18 @@ public class CommonUIComponents : ModuleRules
 			new string[]
 			{
 				"Core",
-				"UMG"
+				"CoreUObject",
+				"Engine",
+				"UMG",
+				"CommonUI",
+				"ModelViewViewModel"
 			}
 			);
-			
-		
+
+
 		PrivateDependencyModuleNames.AddRange(
 			new string[]
 			{
-				"CoreUObject",
-				"Engine",
 				"Projects",
 				"Slate",
 				"SlateCore"
