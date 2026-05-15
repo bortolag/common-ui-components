@@ -3,6 +3,7 @@
 #include "UI/Slate/CommonUIComponentsStyles.h"
 
 #include <Interfaces/IPluginManager.h>
+#include <Styling/StyleColors.h>
 #include <Styling/SlateStyleMacros.h>
 #include <Styling/SlateStyleRegistry.h>
 

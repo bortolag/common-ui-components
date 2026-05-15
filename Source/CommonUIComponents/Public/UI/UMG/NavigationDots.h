@@ -23,10 +23,12 @@ public:
 	UNavigationDots(const FObjectInitializer& ObjectInitializer);
 	
 	// Begin UWidget override
-	virtual TSharedRef<SWidget> RebuildWidget() override;
 	virtual void ReleaseSlateResources(bool bReleaseChildren) override;
 	virtual void SynchronizeProperties() override;
+	
+#if WITH_EDITOR
 	virtual const FText GetPaletteCategory() override;
+#endif
 	// End UWidget override
 	
 	// Sets a new selected dot after the given index
@@ -73,6 +75,10 @@ public:
 	FOnNavigationDotsEvent OnDotSelected;
 	
 protected:
+	
+	// Begin UWidget override
+	virtual TSharedRef<SWidget> RebuildWidget() override;
+	// End UWidget override
 	
 	// Bound to the slate widget delegate event fired whenever a new dot has been selected
 	void SlateDotSelected(const int32 InDotIndex) const;

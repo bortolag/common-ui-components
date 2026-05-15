@@ -14,20 +14,6 @@ UNavigationDots::UNavigationDots(const FObjectInitializer& ObjectInitializer) : 
 	NavigationDotsStyle.NavigateRightButtonStyle.UnlinkColors();
 }
 
-TSharedRef<SWidget> UNavigationDots::RebuildWidget()
-{
-	NavigationDots = SNew(SNavigationDots)
-		.OnDotSelected(BIND_UOBJECT_DELEGATE(FDotSelectedDelegate, SlateDotSelected))
-		.NumberOfDots(NumberOfDots)
-		.DotsPadding(DotsPadding)
-		.ShowNavigationButtons(NavigationDotsStyle.bShowNavigationButtons)
-		.DotStyle(&NavigationDotsStyle.DotStyle)
-		.NavigateLeftButtonStyle(&NavigationDotsStyle.NavigateLeftButtonStyle)
-		.NavigateRightButtonStyle(&NavigationDotsStyle.NavigateRightButtonStyle);
-	
-	return NavigationDots.ToSharedRef();
-}
-
 void UNavigationDots::ReleaseSlateResources(bool bReleaseChildren)
 {
 	Super::ReleaseSlateResources(bReleaseChildren);
@@ -121,6 +107,20 @@ void UNavigationDots::ShowNavigationButtons(const bool bInShow)
 bool UNavigationDots::IsShowingNavigationButtons() const
 {
 	return NavigationDotsStyle.bShowNavigationButtons;
+}
+
+TSharedRef<SWidget> UNavigationDots::RebuildWidget()
+{
+	NavigationDots = SNew(SNavigationDots)
+		.OnDotSelected(BIND_UOBJECT_DELEGATE(FDotSelectedDelegate, SlateDotSelected))
+		.NumberOfDots(NumberOfDots)
+		.DotsPadding(DotsPadding)
+		.ShowNavigationButtons(NavigationDotsStyle.bShowNavigationButtons)
+		.DotStyle(&NavigationDotsStyle.DotStyle)
+		.NavigateLeftButtonStyle(&NavigationDotsStyle.NavigateLeftButtonStyle)
+		.NavigateRightButtonStyle(&NavigationDotsStyle.NavigateRightButtonStyle);
+	
+	return NavigationDots.ToSharedRef();
 }
 
 void UNavigationDots::SlateDotSelected(const int32 InDotIndex) const
